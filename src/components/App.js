@@ -1,0 +1,25 @@
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import HomePage from "./home/HomePage";
+import AboutPage from "./about/AboutPage";
+import Header from "./common/Header";
+import PageNotFound from "./PageNotFound";
+import BookList from "./books/BookList";
+import BookDetails from "./books/BookDetails";
+
+function App() {
+  return (
+    <div className="container-fluid">
+      <Header />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/about" component={AboutPage} />
+        <Route path="/books" component={BookList} />
+        <Route exact path="/book/:id" component={BookDetails} />
+        <Route component={PageNotFound} />
+      </Switch>
+    </div>
+  );
+}
+
+export default App;
