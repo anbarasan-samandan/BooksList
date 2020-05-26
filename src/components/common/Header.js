@@ -1,32 +1,21 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import * as constants from "../common/constants";
 
 const Header = () => {
-  const activeStyle = { color: "#f15B2A" };
-  const fontSizeStyle = {
-    fontSize: "24px",
-    color: "#FFC107",
-    fontSizeStyle: "bold",
-  };
-  const pipeStyle = {
-    fontSize: "24px",
-    fontSizeStyle: "bold",
-    color: "#FFBF00",
-  };
-
   return (
     <nav>
-      <NavLink to="/" activeStyle={activeStyle} exact>
-        <span style={fontSizeStyle}> Home </span>
+      <NavLink to="/" activeStyle={constants.activeStyle} exact>
+        <span style={constants.menuFontSizeStyle}> Home </span>
       </NavLink>
       {"  "}
-      <span style={pipeStyle}>{" | "}</span>
-      <NavLink to="/books" activeStyle={activeStyle}>
-        <span style={fontSizeStyle}> Books </span>
+      <span style={constants.menuPipeStyle}>{" | "}</span>
+      <NavLink to="/books" activeStyle={constants.activeStyle}>
+        <span style={constants.menuFontSizeStyle}> Books </span>
       </NavLink>{" "}
-      <span style={pipeStyle}>{" | "}</span>
-      <NavLink to="/about" activeStyle={activeStyle}>
-        <span style={fontSizeStyle}> About </span>
+      <span style={constants.menuPipeStyle}>{" | "}</span>
+      <NavLink to="/about" activeStyle={constants.activeStyle}>
+        <span style={constants.menuFontSizeStyle}> About </span>
       </NavLink>
     </nav>
   );

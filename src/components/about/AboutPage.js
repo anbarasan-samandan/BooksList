@@ -10,8 +10,8 @@ const AboutPage = () => (
         Technologies:
         <ul>
           <li>
-            Front-end technologies: React, Redux Thunk, React Router, Boostrap,
-            and many other helpful libraries.
+            Front-end technologies: React, React Router, Boostrap, and many
+            other helpful libraries.
           </li>
           <li>Back-end technologies: Java with spring boot.</li>
         </ul>

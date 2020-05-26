@@ -4,6 +4,8 @@ var cors = require("cors");
 var app = express();
 var bodyParser = require("body-parser");
 
+let port = process.env.PORT || 4000;
+
 // An harcoded JSON array containing the list of books.
 // This array acts as the in-memory structure of the data based on which
 // the front-end renders the content .
@@ -13,7 +15,7 @@ const books = [
     title: "Programming Microsoft Windows With C#",
     author: "Charles Petzold",
     price: "Rs.350",
-    rating: 5,
+    rating: 4.5,
     image: "pmwwc.jpg",
     description:
       "Programming Microsoft Windows with C# is a tutorial for programmers wishing to write applications for Windows using the C# programming language and the Windows Forms class library. C# is a new object-oriented programming language based on C, and Windows Forms is part of the Microsoft .NET framework. Knowledge of the C or C++ programming language is required; some familiarity with object-oriented programming is helpful but not necessary",
@@ -317,7 +319,6 @@ app.get("/books/:id", function (req, res) {
   results.book = book;
   const author = book[0].author;
 
-  console.log("Book author: " + author);
   const booksFromAuthor = books.filter(
     (bk) => bk.author == author && bk.id != bookId
   );
@@ -350,7 +351,7 @@ function paginatedResults(model) {
 /*
  * Sets up the server and starts listening at the configured port number.
  */
-var server = app.listen(4000, function () {
+var server = app.listen(port, function () {
   var host = server.address().address;
   var port = server.address().port;
   console.log(`Server is listening at http://${host}/${port}`);

@@ -3,13 +3,24 @@ import BooksPage from "./BooksPage";
 import { Link } from "react-router-dom";
 import StarRatingComponent from "react-star-rating-component";
 import StickyTable from "react-sticky-table-thead";
+import * as constants from "../common/constants";
 
+/*
+ * Renders the books list as a table.
+ * Includes the logic for infinite scrolling.
+ */
 export default function BookList() {
   const [pageNumber, setPageNumber] = useState(1);
   const { books, hasMore, loading, error } = BooksPage(pageNumber);
 
   const observer = useRef();
 
+  /*
+   * The last row in the table is used as a reference to initiate the infinite scrolling.
+   * The element reference is maintained between the renders. When the last row becomes
+   * visible, the page number is incremented which in-turn fires the useEffect which holds
+   * the logic of fetching the next set of data from the server.
+   */
   const lastBookElementRef = useCallback(
     (node) => {
       if (loading) return;
@@ -24,19 +35,12 @@ export default function BookList() {
     [loading, hasMore]
   );
 
-  const imageStyle = {
-    width: "80px",
-    height: "80px",
-  };
-
-  const tableHeaderStyle = { backgroundColor: "#ffc107" };
-
   return (
     <>
       <h2 className="text-warning">Books</h2>
       <StickyTable height={600}>
         <table className="table table-light table-bordered table-hover">
-          <thead style={tableHeaderStyle}>
+          <thead style={constants.tableHeaderStyle}>
             <tr>
               <th>#</th>
               <th>Image</th>
@@ -56,7 +60,7 @@ export default function BookList() {
                       <img
                         src={`${process.env.API_URL}/` + book.image}
                         alt="new"
-                        style={imageStyle}
+                        style={constants.tableListimageStyle}
                       />
                     </td>
                     <td>
@@ -74,7 +78,7 @@ export default function BookList() {
                     <td>
                       <StarRatingComponent
                         name="rating1"
-                        starCount={5}
+                        starCount={constants.STAR_RATING}
                         value={book.rating}
                       />
                     </td>
@@ -88,7 +92,7 @@ export default function BookList() {
                       <img
                         src={`${process.env.API_URL}/` + book.image}
                         alt="Image"
-                        style={imageStyle}
+                        style={constants.tableListimageStyle}
                       />
                     </td>
                     <td>

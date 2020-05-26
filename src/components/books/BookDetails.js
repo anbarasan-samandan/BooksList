@@ -2,14 +2,24 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import StarRatingComponent from "react-star-rating-component";
 import axios from "axios";
-import "./BookDetails.css";
 import { Link } from "react-router-dom";
+import * as constants from "../common/constants";
 
+/*
+ * Renders the books details of the selected book in the BookList component.
+ * @param {match}: The route parameters, in our case the id of the selected book.
+ */
 function BookDetails({ match }) {
   let params = match.params;
   const [others, setOthers] = useState([]);
   const [book, setBook] = useState({});
 
+  /*
+   * Fetches the details of the books based on the book id and updates the state respectively.
+   * Note: The method is fired whenever there is a change in the params.id.
+   * The other books from the author are shown as links. When clicking on the links,
+   * this method will be invoked.
+   */
   useEffect(() => {
     setOthers([]);
 
@@ -31,35 +41,27 @@ function BookDetails({ match }) {
       });
   }, [params.id]);
 
-  const priceStyle = {
-    fontSize: "1em",
-  };
-
-  const imageStyle = {
-    width: "150px",
-    height: "175px",
-  };
-
-  const leftDiv = {
-    float: "left",
-    margin: "2 2 2 2",
-  };
-
-  const rightDiv = {
-    float: "right",
-  };
-
+  /*
+   * Renders the contents in a responsive that makes use of the available screen width.
+   * For larger windows:
+   *    -- The book image is shown on the left side.
+   *    -- The book details (title, author, rating, description, other books from the author)
+   *       are shown on the right side.
+   * For smaller windows:
+   *    -- The contents are stacked one below the other
+   *    -- Rendering order: Image, book details (title, author, rating, description, other books from the author)
+   */
   return (
     <>
       <div className="container-fluid">
-        <div className="col-md-3" style={leftDiv}>
+        <div className="col-md-3" style={constants.leftDiv}>
           <img
-            style={imageStyle}
+            style={constants.imageStyle}
             src={`${process.env.API_URL}/` + book.image}
           />
         </div>
 
-        <div className="col-md-9 text-light" style={rightDiv}>
+        <div className="col-md-9 text-light" style={constants.rightDiv}>
           <h1 className="text-light">{book.title}</h1>
           <div>
             <span>by</span>
@@ -73,11 +75,11 @@ function BookDetails({ match }) {
           </div>
           <StarRatingComponent
             name="rating1"
-            starCount={5}
+            starCount={constants.STAR_RATING}
             value={book.rating}
           />
           <div>
-            <p style={priceStyle} className="badge badge-warning p-2">
+            <p style={constants.priceStyle} className="badge badge-warning p-2">
               {book.price}
             </p>
           </div>

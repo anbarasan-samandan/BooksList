@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import * as constants from "../common/constants";
 
+/*
+ * A functional component encompasses the logic for fetching the books from
+ * the server...
+ */
 function booksPage(pageNumber) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -8,9 +13,11 @@ function booksPage(pageNumber) {
   const [bookCount, setBookCount] = useState(0);
   const [hasMore, setHasMore] = useState(false);
 
-  const tableHeaders = ["#", "Image", "Title", "Author", "Price", "Rating"];
-  const pageSize = 10;
-
+  /*
+   * Fetches the books list and the total count of the books from the server.
+   * The total count of the books is required to determine whether all the
+   * books has been fetched from the server.
+   */
   useEffect(() => {
     setLoading(true);
     setError(false);
@@ -18,7 +25,7 @@ function booksPage(pageNumber) {
     axios({
       method: "GET",
       url: `${process.env.API_URL}/books/`,
-      params: { page: pageNumber, limit: pageSize },
+      params: { page: pageNumber, limit: constants.PAGE_SIZE },
     })
       .then((res) => {
         setBookCount(() => {
@@ -33,10 +40,8 @@ function booksPage(pageNumber) {
           }
         });
 
-        let currentBookCount = pageNumber * pageSize;
+        let currentBookCount = pageNumber * constants.PAGE_SIZE;
         let isMoreBooks = bookCount > currentBookCount;
-        console.log("Current book count: " + currentBookCount);
-        console.log("Has more: " + isMoreBooks);
 
         setHasMore(isMoreBooks);
 
@@ -47,7 +52,7 @@ function booksPage(pageNumber) {
         setError(true);
       });
   }, [bookCount > 0, pageNumber]);
-  return { loading, error, books, hasMore, bookCount, tableHeaders };
+  return { loading, error, books, hasMore, bookCount };
 }
 
 export default booksPage;
