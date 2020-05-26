@@ -65,8 +65,8 @@ _Note: The data required for the application are in-memory. There are no externa
 
 ## Future improvements:
 
-1. The server side will be replaced by spring-boot.
-2. The mongodb will be used for storing the data.
+1. To replace server-side code with spring-boot.
+2. To store the data persistently in mongodb.
 
 ## Dependencies
 
