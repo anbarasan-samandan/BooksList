@@ -10,6 +10,10 @@
 2. Client-side code organization:
    - All the components are placed within their respective folder to have a clear separation.
    - Components, constants referred in other components are placed within the **common** folder.
+   - Code design:
+     - All the components are developed as functional components and use react-hooks.
+     - Infinite scrolling is implemented manually. I have gone through a few custom components and finally decided to go with the custom implementation.
+     - Star rating was is implemented using a custom component.The responsiveness of the screen is handled using bootstrap container-fluid and column layout.
    - Few notable libraries used:
      - Axios: Library for interacting with the server-side for fetching data.
      - Bootstrap: CSS Framework for styles and responsive design.
