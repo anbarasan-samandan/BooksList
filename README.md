@@ -40,6 +40,29 @@
 
 _Note: The data required for the application are in-memory. There are no external test data at this moment._
 
+## Screenshots
+
+**Home Screen**
+
+![](Screenshots/Home.png)
+
+**Books list screen**
+
+![](Screenshots/BooksList.png)
+
+**Book details screen**
+
+![](Screenshots/BookDetails.png)
+
+**Book details - responsive (smaller screen size)**
+
+![](Screenshots/BookDetails_Responsive.png)
+
+**About screen**
+
+![](Screenshots/About.png)
+
+
 ## Future improvements:
 
 1. The server side will be replaced by spring-boot.
