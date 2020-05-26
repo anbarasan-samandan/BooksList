@@ -11,13 +11,13 @@
    - All the components are placed within their respective folder to have a clear separation.
    - Components, constants referred in other components are placed within the **common** folder.
    - Few notable libraries used:
-   -- Axios: Library for interacting with the server-side for fetching data.
-   -- Bootstrap: CSS Framework for styles and responsive design.
+     - Axios: Library for interacting with the server-side for fetching data.
+     - Bootstrap: CSS Framework for styles and responsive design.
 3. Server-side code organization:
    - The data is stored in-memory to be keep the solution simple.
    - BooksServices.js provides the necessary api for fetching data from the client-side.
-     - The images are placed separately in the public folder and served using express.static functionlity.
-     - Express provides the server functionality and listens on the configured port.
+   - The images are placed separately in the public folder and served using express.static functionlity.
+   - Express provides the server functionality and listens on the configured port.
 
 ## SETUP
 
