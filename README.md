@@ -2,7 +2,7 @@
 
 ### A single page web application developed to demonstrate the full stack architecture using React, Node JS and Express. As of now, the data (books list) is stored in-memory.
 
-## More details on the source code structure:
+## Application details:
 
 1. The sources of both the client and server are placed within the **src** folder.
    - The client-side are available within the **src\components** folder.
