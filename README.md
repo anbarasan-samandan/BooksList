@@ -1,51 +1,51 @@
 # Book List - List of my favourite books.
 
-### A single page web application developed to demonstrate the full stack architecture using React, Node JS and Express.
+### A single page web application developed to demonstrate the full stack architecture using React, Node JS and Express. As of now, the data (books list) is stored in-memory.
 
-### As of now, the data (books list) is stored in-memory.
+## More details on the source code structure:
+
+1. The sources of both the client and server are placed within the **src** folder.
+   - The client-side are available within the **src\components** folder.
+   - The server-side are available within the **src\server** folder.
+2. Client-side code organization:
+   - All the components are placed within their respective folder to have a clear separation.
+   - Components, constants referred in other components are placed within the **common** folder.
+   - Few notable libraries used:
+   - Axios: Library for interacting with the server-side for fetching data.
+   - Bootstrap: CSS Framework for styles and responsive design.
+3. Server-side code organization:
+   - The data is stored in-memory to be keep the solution simple.
+   - BooksServices.js provides the necessary api for fetching data from the client-side.
+   - The images are placed separately in the public folder and served using express.static functionlity.
+   - Express provides the server functionality and listens on the configured port.
+
+## SETUP
+
+1. **Install [Latest version of Node](https://nodejs.org)** if not already installed. Node version starting from 8 and greater should be fine.
+2. Install the node packages as follows:
+   - **Navigate to this project's root directory on the command line.**
+   - **Type** - `npm install` - this should install all the dependencies.
+
+## Running the application:
+
+1. Navigate to this project root folder if you're not already in that location.
+2. To run in **development mode**, do the following:
+   - Type **npm run start** and press enter. This commands in parallel builds the application and starts the node server.
+   - In the browser, in a new tab, type "http://localhost:3000" and press enter.
+   - By now, the home page should be visible, link on the menus at the top to navgiate through the application.
+3. To run in **production mode**, do the following:
+   - Type **npm run build** and press enter. This commands in parallel builds the application and starts the node server.
+   - In the browser, in a new tab, type "http://localhost:3000" and press enter.
+   - By now, the home page should be visible, link on the menus at the top to navgiate through the application.
+
+_Note: The data required for the application are in-memory. There are no external test data at this moment._
 
 ## Future improvements:
 
 1. The server side will be replaced by spring-boot.
 2. The mongodb will be used for storing the data.
 
-## More details on the source code structure:
-
-1. The sources of both the client and server are placed within the **src** folder.
-   i. The client-side are available within the **src\components** folder.
-   ii. The server-side are available within the **src\server** folder.
-2. Client-side code organization:
-   i. All the components are placed within their respective folder to have a clear separation.
-   ii. Components, constants referred in other components are placed within the **common** folder.
-   iii. Few notable libraries used:
-   i. Axios: Library for interacting with the server-side for fetching data.
-   ii. Bootstrap: CSS Framework for styles and responsive design.
-3. Server-side code organization:
-   i. The data is stored in-memory to be keep the solution simple.
-   ii. BooksServices.js provides the necessary api for fetching data from the client-side.
-   iii. The images are placed separately in the public folder and served using express.static functionlity.
-   iv. Express provides the server functionality and listens on the configured port.
-
-## SETUP
-
-1. **Install [Latest version of Node](https://nodejs.org)** if not already installed. Node version starting from 8 and greater should be fine.
-2. Install the node packages as follows:
-   i. **Navigate to this project's root directory on the command line.**
-   ii. **Type** - `npm install` - this should install all the dependencies.
-
-## Running the application:
-
-1. Navigate to this project root folder if you're not already in that location.
-2. To run in **development mode**, do the following:
-   2.1 Type **npm run start** and press enter. This commands in parallel builds the application and starts the node server.
-   2.2 In the browser, in a new tab, type "http://localhost:3000" and press enter.
-   2.3 By now, the home page should be visible, link on the menus at the top to navgiate through the application.
-3. To run in **production mode**, do the following:
-   2.1 Type **npm run build** and press enter. This commands in parallel builds the application and starts the node server.
-   2.2 In the browser, in a new tab, type "http://localhost:3000" and press enter.
-   2.3 By now, the home page should be visible, link on the menus at the top to navgiate through the application.
-
-_Note: The data required for the application are in-memory. There are no external test data at this moment._
+## Dependencies
 
 ### Production Dependencies
 
