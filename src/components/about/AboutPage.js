@@ -13,7 +13,7 @@ const AboutPage = () => (
             Front-end technologies: React, React Router, Boostrap, and many
             other helpful libraries.
           </li>
-          <li>Back-end technologies: Java with spring boot.</li>
+          <li>Back-end technologies: Node.js.</li>
         </ul>
       </p>
     </p>
