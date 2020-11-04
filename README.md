@@ -1,6 +1,6 @@
 # Book List - List of my favourite books.
 
-### A single page web application developed to demonstrate the full stack architecture using React, Node JS and Express. As of now, the data (books list) is stored in-memory.
+### A single page web application to demonstrate full stack architecture using React, Node JS and Express. As of now, the data (books list) is stored in-memory.
 
 ## Application details:
 
